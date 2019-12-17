@@ -1,34 +1,43 @@
-#What is Docker Hub Registry
+## What is Docker Hub Registry
 
 Docker Hub is a cloud-based registry service which allows you to link to code repositories, build your images and test them, stores manually pushed images, and links to Docker Cloud so you can deploy images to your hosts. It provides a centralized resource for container image discovery, distribution and change management, user and team collaboration, and workflow automation throughout the development pipeline.
-Ref URL : https://docs.docker.com/docker-hub/
 
-    Create a docker hub account in https://hub.docker.com/
+##### Ref URL : https://docs.docker.com/docker-hub/
 
-    Pull a docker image
+1. Create a docker hub account in https://hub.docker.com/
 
-    docker pull ubuntu
+1. Pull a docker image 
 
-    pull a docker image with the old version
+   ```sh 
+   docker pull ubuntu
+   ```
 
-    docker pull ubuntu:16.04
+1. pull a docker image with the old version
 
-    create a custom tag to the docker image
+   ```sh
+   docker pull ubuntu:16.04
+   ```
 
-    docker tag ubuntu:latest valaxy/ubuntu:demo
+1. create a custom tag to the docker image
+   ```sh
+   docker tag ubuntu:latest valaxy/ubuntu:demo
+   ```
 
-    login to your docker hub registry
+1. login to your docker hub registry 
+   ```sh
+   docker login
+   docker push valaxy/ubuntu:demo
+   ```
 
-    docker login
-    docker push valaxy/ubuntu:demo
+### testing 
 
-#testing
+1. Remove all images in docker server 
+   ```sh 
+   docker image rm -f <Image_id>
+   ```
 
-    Remove all images in docker server
-
-    docker image rm -f <Image_id>
-
-    Pull your custom image from your docker account
-
-    docker pull valaxy/ubuntu:demo
+1. Pull your custom image from your docker account
+   ```sh
+   docker pull valaxy/ubuntu:demo
+   ```
 
