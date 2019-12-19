@@ -55,7 +55,7 @@
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.samishken.com --dns-zone=samishken.com --dns private 
+   kops create cluster --cloud=aws --zones=us-east-1a --name=demo.k8s.samishken.com --dns-zone=samishken.com --dns private 
     ```
 
 1. Create kubernetes cluser
