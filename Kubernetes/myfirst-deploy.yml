@@ -24,12 +24,3 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-
