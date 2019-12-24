@@ -11,14 +11,14 @@
     ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
     ```
 
-1. Install kubectl on ubuntu instance
+1. Install kubectl on ubuntu instance (Kubectl is a tool which is useful to manage out k8s cluster)
    ```sh
    curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
     chmod +x ./kubectl
     sudo mv ./kubectl /usr/local/bin/kubectl
    ```
 
-1. Install kops on ubuntu instance
+1. Install kops on ubuntu instance (kops is used to setup k8s cluster on AWS)
    ```sh
     curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
     chmod +x kops-linux-amd64
