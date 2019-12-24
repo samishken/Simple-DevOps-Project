@@ -35,34 +35,40 @@
 1. Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
    ```sh
    Routeh53 --> hosted zones --> created hosted zone  
-   Domain Name: samishken.com
+   Domain Name: greatgoal.com
    Type: Private hosted zone for Amzon VPC
    ```
 
 1. create an S3 bucket
    ```sh
-    aws s3 mb s3://demo.k8s.samishken.com
+    aws s3 mb s3://k8s.greatgoal.com
    ```
 1. Expose environment variable:
    ```sh
-    export KOPS_STATE_STORE=s3://demo.k8s.samishken.com
+    export KOPS_STATE_STORE=s3://k8s.greatgoal.com
+    
+    # export s3 bucket
+    # enable KOPS to use our s3 bucket
    ```
 
 1. Create sshkeys before creating cluster
    ```sh
     ssh-keygen
+    
+    # Help us login to our Kubernetes cluster
    ```
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=us-east-1a --name=demo.k8s.samishken.com --dns-zone=samishken.com --dns private
+   kops create cluster --cloud=aws --zones=us-east-1b --name=k8s.greatgoal.com --dns-zone=greatgoal.com --dns private
    
-   #cluster name is same as s3 bucket name for easy identification
+   # cluster name is same as s3 bucket name for easy identification
+   
     ```
 
 1. Create kubernetes cluser
     ```sh
-    kops update cluster demo.k8s.samishken.com --yes
+    kops update cluster k8s.greatgoal.com --yes
     ```
 
 1. Validate your cluster
@@ -77,7 +83,7 @@
 
 1. To delete cluster
     ```sh
-     kops delete cluster demo.k8s.samishken.com --yes
+     kops delete cluster k8s.greatgoal.com --yes
     ```
    
 #### Deploying Nginx pods on Kubernetes
