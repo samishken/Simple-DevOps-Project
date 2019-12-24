@@ -11,7 +11,7 @@
     ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
     ```
 
-1. Install kubectl on ubuntu instance (Kubectl is a tool which is useful to manage out k8s cluster)
+1. Install kubectl on ubuntu instance (Kubectl is a tool which is useful to manage our k8s cluster)
    ```sh
    curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
     chmod +x ./kubectl
@@ -55,7 +55,9 @@
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=us-east-1a --name=demo.k8s.samishken.com --dns-zone=samishken.com --dns private 
+   kops create cluster --cloud=aws --zones=us-east-1a --name=demo.k8s.samishken.com --dns-zone=samishken.com --dns private
+   
+   #cluster name is same as s3 bucket name for easy identification
     ```
 
 1. Create kubernetes cluser
