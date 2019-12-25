@@ -13,10 +13,11 @@ spec:
       targetPort: 8080  
       nodePort: 31200     
       
-      
-  ```sh
-  Note:
+
+ 
+ ```sh
+    Note:
   - port: 8080    #pods level
       targetPort: 8080  #k8s cluster level
       nodePort: 31200    # to expose for external
- ```
+    ```
