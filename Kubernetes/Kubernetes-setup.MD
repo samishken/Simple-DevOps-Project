@@ -13,9 +13,9 @@
 
 1. Install kubectl on ubuntu instance (Kubectl is a tool which is useful to manage our k8s cluster)
    ```sh
-   curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-    chmod +x ./kubectl
-    sudo mv ./kubectl /usr/local/bin/kubectl
+   curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl    
+   chmod +x ./kubectl
+   sudo mv ./kubectl /usr/local/bin/kubectl
    ```
 
 1. Install kops on ubuntu instance (kops is used to setup k8s cluster on AWS)
