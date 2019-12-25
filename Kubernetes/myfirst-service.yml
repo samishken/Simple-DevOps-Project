@@ -9,6 +9,6 @@ spec:
     app: myfirst-devops-project
   type: LoadBalancer
   ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 31200
+    - port: 8080    #pods level
+      targetPort: 8080  #k8s cluster level
+      nodePort: 31200    # to expose for external
