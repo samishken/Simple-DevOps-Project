@@ -21,7 +21,10 @@
    ```
 1. add a user to docker group to manage docker 
    ```
-   usermod -aG docker dockeradmin
+   [root@docker-host ~]# cat /etc/group
+   [root@docker-host ~]# usermod -aG docker dockeradmin
+   [root@docker-host ~]# id dockeradmin
+   uid=501(dockeradmin) gid=501(dockeradmin) groups=501(dockeradmin),497(docker)
    ```
 ### Validation test
 1. Create a tomcat docker container by pulling a docker image from the public docker registry
