@@ -30,15 +30,6 @@ Ansible is an open-source automation platform. It is very, very simple to set up
    ```sh
    echo "ansadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
    ```
-   
-1. Log in as a ansadmin user on master and generate ssh key (on Control node)
-   ```sh 
-   ssh-keygen
-   ```
-1. Copy keys onto all ansible managed hosts (on Control node)
-   ```sh 
-   ssh-copy-id ansadmin@<target-server>
-   ```
 
 1. Ansible server used to create images and store on docker registry. Hence install docker, start docker services and add ansadmin to the docker group. 
    ```sh
@@ -50,9 +41,41 @@ Ansible is an open-source automation platform. It is very, very simple to set up
    
    # add user to docker group 
    usermod -aG docker ansadmin
-
    ```
+   
+   ```sh 
+   vi /etc/ssh/sshd_config
+   PasswordAuthentication yes
+   service sshd reload
+   ```
+   
+1. Log in as a ansadmin user on master and generate ssh key (on Control node)
+   ```sh
+   # First su - ansadmin
+   ssh-keygen
+   check if we have id_rsa & id_rsa.put under .ssh
+   ```
+   
+    ```sh
+   exit from su - ansadmin
+   hostname ansible-control-node
+   on docker server
+   useradd ansadmin
+   passwd ansadmin
+   ```
+   
+1. Copy keys onto all ansible managed hosts (on Control node)
+   ```sh 
+   su - ansadmin
+   ssh-copy-id ansadmin@<target-server> (<target-server> go to docker server "ip addr")
+   
+   **Make sure you jumped into docker host system from ansible server**
+   exit
+   ```
+
 1. Create a directory /etc/ansible and create an inventory file called "hosts" add control node and managed hosts IP addresses to it. 
+   - [ansadmin@ansible-control-node ~]$ cd /etc/ansible
+   - [ansadmin@ansible-control-node ~]$ sudo vi hosts
    - add docker ip add & localhost
 ### Validation test
 
@@ -61,3 +84,5 @@ Ansible is an open-source automation platform. It is very, very simple to set up
    ```sh 
    ansible all -m ping
    ```
+   ssh-copy-id localhost
+   
