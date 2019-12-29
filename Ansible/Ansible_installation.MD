@@ -84,5 +84,10 @@ Ansible is an open-source automation platform. It is very, very simple to set up
    ```sh 
    ansible all -m ping
    ```
+   ```sh
+   To add local system
    ssh-copy-id localhost
+   then run "ansible all -m ping" again
+   ```
+   
    
