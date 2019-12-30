@@ -86,7 +86,7 @@
      kops delete cluster k8s.greatgoal.com --yes
     ```
    
-#### Deploying Nginx pods on Kubernetes
+#### Deploying Nginx pods on Kubernetes (The following are samples to run Deploy & Service)
 1. Deploying Nginx Container
     ```sh
     kubectl run sample-nginx --image=nginx --replicas=2 --port=80
