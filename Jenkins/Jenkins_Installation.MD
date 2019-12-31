@@ -11,17 +11,28 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
 ## Install Java
 1. We will be using open java for our demo, Get the latest version from http://openjdk.java.net/install/
    ```sh
-   #java -version
-   Recommended to remove java 1.7 before installing 1.8.0
-   #yum remove java-1.7.0*
+   
+   #Recommended to remove java 1.7 before installing 1.8.0
+   java -version
+   yum remove java-1.7.0*
+   #Install java 1.8
    yum install java-1.8*
-   #yum -y install java-1.8.0-openjdk
+   #yum install java-1.8.0-openjdk
+   
+   #Check if java 1.8 is installed
+   java -version
    ```
 
 1. Confirm Java Version and set the java home
    ```sh
-   java -version
+   
    find /usr/lib/jvm/java-1.8* | head -n 3
+   "The actual path of our JRE is something like 
+   /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.47.amzn1.x86_64"
+   
+   From home path
+   [root@ip-172-31-87-127 ~]# vi ~/.bash_profile
+   
    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-1.el8_0.x86_64
    export JAVA_HOME
    PATH=$PATH:$JAVA_HOME
@@ -75,7 +86,7 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
 1. Create “new item”
 1. Enter an item name – `My-First-Project`
    - Chose `Freestyle` project
-1. Under the Build section
+1. Under the Build section - Select Ececute Shell
 	Execute shell: echo "Welcome to Jenkins Demo"
 1. Save your job 
 1. Build job
