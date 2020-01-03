@@ -19,7 +19,7 @@ Git is one of the most popular tools for version control system. you can pull co
            This plugin integrates GitHub to Jenkins.
 
   - Configure git path
-         - `Manage Jenkins` > `Global Tool Configuration` > `git`
+   - `Manage Jenkins` > `Global Tool Configuration` > `git`
                 Name - github
                 Path to Git executable - git
 
