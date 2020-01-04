@@ -22,6 +22,14 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
    #Check if java 1.8 is installed
    java -version
    ```
+   _The output should be something like this,_
+    ```sh
+   [root@~]# java -version
+   openjdk version "1.8.0_151"
+   OpenJDK Runtime Environment (build 1.8.0_151-b12)
+   OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
+   ```
+   
 
 1. Confirm Java Version and set the java home
    ```sh
@@ -39,13 +47,7 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
     # To set it permanently update your .bash_profile
    vi ~/.bash_profile
    ```
-   _The output should be something like this,_
-    ```sh
-   [root@~]# java -version
-   openjdk version "1.8.0_151"
-   OpenJDK Runtime Environment (build 1.8.0_151-b12)
-   OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
-   ```
+   
 
 ## Install Jenkins
  You can install jenkins using the rpm or by setting up the repo. We will set up the repo so that we can update it easily in the future.
