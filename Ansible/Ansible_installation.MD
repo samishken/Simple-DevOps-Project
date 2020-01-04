@@ -51,7 +51,7 @@ Ansible is an open-source automation platform. It is very, very simple to set up
    
 1. Log in as a ansadmin user on master and generate ssh key (on Control node)
    ```sh
-   # First su - ansadmin
+   su - ansadmin
    ssh-keygen
    check if we have id_rsa & id_rsa.put under .ssh
    ```
@@ -59,24 +59,25 @@ Ansible is an open-source automation platform. It is very, very simple to set up
     ```sh
    exit from su - ansadmin
    hostname ansible-control-node
-   on docker server
-   useradd ansadmin
-   passwd ansadmin
+   #Go to  docker server and add ansadmin user
+      [root@docker-host ~]# useradd ansadmin
+      [root@docker-host ~]# passwd ansadmin
    ```
    
 1. Copy keys onto all ansible managed hosts (on Control node)
    ```sh 
-   su - ansadmin
-   ssh-copy-id ansadmin@<target-server> (<target-server> go to docker server "ip addr")
+   #On ansible host
+   1) su - ansadmin
+   2) ssh-copy-id ansadmin@<target-server> (<target-server> go to docker server "private ip addr")
    
-   **Make sure you jumped into docker host system from ansible server**
+   **Make sure you jumped into (connected to) docker host system from ansible server**
    exit
    ```
 
-1. Create a directory /etc/ansible and create an inventory file called "hosts" add control node and managed hosts IP addresses to it. 
+1. Before we can PING we need to Create a directory /etc/ansible and create an inventory file called "hosts" add control node and managed hosts IP addresses to it. 
    - [ansadmin@ansible-control-node ~]$ cd /etc/ansible
    - [ansadmin@ansible-control-node ~]$ sudo vi hosts
-   - add docker ip add & localhost
+   - add docker private ip add & localhost
 ### Validation test
 
    
